@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Usuarios</h2>
+  <a class="btn btn-success mb-3" href="{% url 'usuario_create' %}">Agregar Usuario</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>RUT</th><th>Nombre</th><th>Apellido</th><th>Email</th><th>Teléfono</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for usuario in usuarios %}
+      <tr>
+        <td>{{ usuario.rut }}</td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.apellido }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.telefono }}</td>
+        <td>
+          <a href="{% url 'usuario_update' usuario.pk %}" class="btn btn-sm btn-primary">Editar</a>
+          <a href="{% url 'usuario_delete' usuario.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
