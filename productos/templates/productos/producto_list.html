@@ -6,7 +6,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Código</th><th>Nombre</th><th>Precio</th><th>Stock Mínimo</th><th>Acciones</th>
+                <th>Código</th><th>Nombre</th><th>Precio</th><th>Stock Mínimo</th><th>Stock Actual</th><th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +16,7 @@
                 <td>{{ p.nombre }}</td>
                 <td>${{ p.precio_venta }}</td>
                 <td>{{ p.cantidad_minima }}</td>
+                <td>{{ p.stock }}</td>
                 <td>
                     <a class="btn btn-info btn-sm" href="{% url 'producto_detail' p.pk %}">Ver</a>
                     <a class="btn btn-warning btn-sm" href="{% url 'producto_update' p.pk %}">Editar</a>
